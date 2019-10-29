@@ -28,7 +28,8 @@ def resize_imgs(img_list, img_out_dirs, resize_koef):
             restore_img(reduced_img_path,restored_img_path,size)
             original_img = tf.image.decode_jpeg(open(path, 'rb').read())
             restored_img = tf.image.decode_jpeg(open(restored_img_path, 'rb').read())
-            print(tf.image.psnr(original_img, restored_img, max_val=255))
+            psnr1 = tf.image.psnr(original_img, restored_img, max_val=255)
+           
 if __name__ == '__main__':
 
     resize_koef = [2,4,8,16,32]
